@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReviewGuard - Intelligentes Bewertungsmanagement</title>
+    <meta name="description" content="Verwandeln Sie unzufriedene Kunden in treue Fans. Der smarte Filter zwischen Ihren Kunden und Google Reviews.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+
+        .glow {
+            box-shadow: 0 0 60px rgba(34, 197, 94, 0.3);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .star-rating {
+            background: linear-gradient(90deg, #fbbf24 80%, #374151 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .number-counter {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-primary-500 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold text-white">ReviewGuard</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-slate-300 hover:text-white transition">Vorteile</a>
+                    <a href="#how-it-works" class="text-slate-300 hover:text-white transition">So funktioniert's</a>
+                    <a href="#pricing" class="text-slate-300 hover:text-white transition">Preise</a>
+                    <a href="#faq" class="text-slate-300 hover:text-white transition">FAQ</a>
+                    <a href="#contact" class="bg-primary-500 hover:bg-primary-600 text-white px-5 py-2.5 rounded-lg font-medium transition">
+                        Jetzt starten
+                    </a>
+                </div>
+                <button class="md:hidden text-white" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-slate-800 border-t border-slate-700" id="mobile-menu">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#features" class="block text-slate-300 hover:text-white">Vorteile</a>
+                <a href="#how-it-works" class="block text-slate-300 hover:text-white">So funktioniert's</a>
+                <a href="#pricing" class="block text-slate-300 hover:text-white">Preise</a>
+                <a href="#faq" class="block text-slate-300 hover:text-white">FAQ</a>
+                <a href="#contact" class="block bg-primary-500 text-white px-4 py-2 rounded-lg text-center font-medium">Jetzt starten</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="inline-flex items-center bg-primary-500/10 border border-primary-500/20 rounded-full px-4 py-2 mb-6">
+                        <span class="w-2 h-2 bg-primary-400 rounded-full mr-2 animate-pulse"></span>
+                        <span class="text-primary-400 text-sm font-medium">Neu: NFC-Technologie integriert</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                        Negative Bewertungen?
+                        <span class="text-primary-400">Nicht mit uns.</span>
+                    </h1>
+                    <p class="text-xl text-slate-300 mb-8 leading-relaxed">
+                        ReviewGuard filtert unzufriedene Kunden heraus, bevor sie eine schlechte Google-Bewertung hinterlassen.
+                        Lösen Sie Probleme direkt und verwandeln Sie Kritiker in Fans.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                        <a href="#pricing" class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition shadow-lg shadow-primary-500/25 text-center">
+                            Kostenlos testen
+                        </a>
+                        <a href="#how-it-works" class="border border-slate-600 hover:border-slate-500 text-white px-8 py-4 rounded-xl font-semibold text-lg transition text-center">
+                            Demo ansehen
+                        </a>
+                    </div>
+                    <div class="flex items-center space-x-8">
+                        <div>
+                            <div class="text-3xl font-bold text-white number-counter">2.500+</div>
+                            <div class="text-slate-400">Zufriedene Kunden</div>
+                        </div>
+                        <div class="w-px h-12 bg-slate-700"></div>
+                        <div>
+                            <div class="text-3xl font-bold text-white number-counter">94%</div>
+                            <div class="text-slate-400">Positive Bewertungen</div>
+                        </div>
+                        <div class="w-px h-12 bg-slate-700"></div>
+                        <div>
+                            <div class="flex text-2xl">
+                                <span class="text-yellow-400">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            </div>
+                            <div class="text-slate-400">Durchschnitt</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in relative">
+                    <div class="relative">
+                        <!-- Phone Mockup -->
+                        <div class="bg-slate-800 rounded-[3rem] p-3 shadow-2xl glow float-animation mx-auto max-w-[300px]">
+                            <div class="bg-slate-900 rounded-[2.5rem] overflow-hidden">
+                                <div class="bg-slate-800 h-8 flex items-center justify-center">
+                                    <div class="w-20 h-5 bg-slate-900 rounded-full"></div>
+                                </div>
+                                <div class="p-6 space-y-6">
+                                    <div class="text-center">
+                                        <div class="w-16 h-16 bg-primary-500 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                        </div>
+                                        <h3 class="text-white font-semibold mb-2">Wie war Ihr Besuch?</h3>
+                                        <p class="text-slate-400 text-sm">Teilen Sie uns Ihre Erfahrung mit</p>
+                                    </div>
+                                    <div class="flex justify-center space-x-2">
+                                        <button class="w-12 h-12 rounded-xl bg-red-500/20 text-red-400 hover:bg-red-500/30 transition text-2xl">&#128542;</button>
+                                        <button class="w-12 h-12 rounded-xl bg-yellow-500/20 text-yellow-400 hover:bg-yellow-500/30 transition text-2xl">&#128528;</button>
+                                        <button class="w-12 h-12 rounded-xl bg-primary-500/20 text-primary-400 hover:bg-primary-500/30 transition text-2xl">&#128512;</button>
+                                        <button class="w-12 h-12 rounded-xl bg-primary-500 text-white transition text-2xl">&#129321;</button>
+                                    </div>
+                                    <div class="text-center text-slate-500 text-xs">
+                                        Tippen Sie auf einen Emoji
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-4 -right-4 bg-white rounded-xl p-3 shadow-xl hidden lg:block">
+                            <div class="flex items-center space-x-2">
+                                <div class="text-yellow-400 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <span class="text-slate-700 font-medium">4.9</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 bg-primary-500 text-white rounded-xl px-4 py-2 shadow-xl hidden lg:block">
+                            <span class="font-medium">+127 Bewertungen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By -->
+    <section class="bg-slate-900 py-12 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-slate-500 mb-8">Vertrauen von führenden Unternehmen</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50">
+                <span class="text-2xl font-bold text-slate-400">Restaurant Krone</span>
+                <span class="text-2xl font-bold text-slate-400">AutoHaus Weber</span>
+                <span class="text-2xl font-bold text-slate-400">Spa Oasis</span>
+                <span class="text-2xl font-bold text-slate-400">Hotel Bergblick</span>
+                <span class="text-2xl font-bold text-slate-400">Zahnarzt Dr. Müller</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="bg-slate-900 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                    Eine einzige schlechte Bewertung kann Sie
+                    <span class="text-red-400">30 Kunden</span> kosten
+                </h2>
+                <p class="text-xl text-slate-400 mb-12">
+                    92% der Verbraucher lesen Online-Bewertungen vor einem Kauf.
+                    Negative Bewertungen bleiben Jahre sichtbar und schaden Ihrem Geschäft täglich.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 fade-in">
+                    <div class="w-14 h-14 bg-red-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Umsatzverlust</h3>
+                    <p class="text-slate-400">
+                        Schlechte Bewertungen senken die Conversion-Rate um bis zu 70%.
+                        Potenzielle Kunden wählen die Konkurrenz.
+                    </p>
+                </div>
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 fade-in">
+                    <div class="w-14 h-14 bg-yellow-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Keine zweite Chance</h3>
+                    <p class="text-slate-400">
+                        Einmal veröffentlicht, ist eine negative Bewertung kaum zu entfernen.
+                        Sie haben keine Möglichkeit, das Problem vorher zu lösen.
+                    </p>
+                </div>
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 fade-in">
+                    <div class="w-14 h-14 bg-orange-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Frustration</h3>
+                    <p class="text-slate-400">
+                        Oft sind negative Bewertungen übertrieben oder unfair.
+                        Ein kurzes Gespräch hätte das Problem gelöst.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="bg-slate-950 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Die smarte Lösung für Ihr Bewertungsmanagement
+                </h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+                    ReviewGuard gibt Ihnen die Kontrolle zurück. Lösen Sie Probleme, bevor sie öffentlich werden.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 card-hover fade-in">
+                    <div class="w-14 h-14 bg-primary-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Intelligenter Filter</h3>
+                    <p class="text-slate-400">
+                        Unzufriedene Kunden werden erkannt und können ihr Feedback direkt an Sie senden,
+                        statt eine öffentliche Bewertung zu hinterlassen.
+                    </p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 card-hover fade-in">
+                    <div class="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">NFC & QR-Code</h3>
+                    <p class="text-slate-400">
+                        Kunden tippen einfach mit dem Smartphone auf das Display oder scannen den QR-Code.
+                        Keine App nötig, funktioniert sofort.
+                    </p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 card-hover fade-in">
+                    <div class="w-14 h-14 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Dashboard & Analytics</h3>
+                    <p class="text-slate-400">
+                        Verfolgen Sie alle Bewertungen in Echtzeit. Sehen Sie Trends,
+                        analysieren Sie Feedback und optimieren Sie Ihren Service.
+                    </p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 card-hover fade-in">
+                    <div class="w-14 h-14 bg-pink-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Kundenbindung</h3>
+                    <p class="text-slate-400">
+                        Reagieren Sie auf Kritik, bevor sie eskaliert. Zeigen Sie Kunden,
+                        dass Ihnen ihre Meinung wichtig ist.
+                    </p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 card-hover fade-in">
+                    <div class="w-14 h-14 bg-cyan-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Individuelles Design</h3>
+                    <p class="text-slate-400">
+                        Passen Sie die Bewertungsseite an Ihr Branding an. Logo, Farben und Texte
+                        werden auf Ihr Unternehmen abgestimmt.
+                    </p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 card-hover fade-in">
+                    <div class="w-14 h-14 bg-emerald-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Sofort einsatzbereit</h3>
+                    <p class="text-slate-400">
+                        Kein technisches Wissen nötig. Display aufstellen, QR-Code scannen lassen, fertig.
+                        In 5 Minuten startklar.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section id="how-it-works" class="bg-slate-900 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    So einfach funktioniert's
+                </h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+                    In drei Schritten zu besseren Bewertungen
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <!-- Connecting Line -->
+                <div class="hidden md:block absolute top-24 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-primary-500 via-primary-400 to-primary-500"></div>
+
+                <!-- Step 1 -->
+                <div class="relative fade-in">
+                    <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700 text-center relative z-10">
+                        <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white">1</div>
+                        <div class="mb-6">
+                            <svg class="w-20 h-20 mx-auto text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Kunde scannt</h3>
+                        <p class="text-slate-400">
+                            Der Kunde scannt den QR-Code auf Ihrem ReviewGuard Display oder tippt
+                            mit dem Smartphone darauf (NFC).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative fade-in">
+                    <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700 text-center relative z-10">
+                        <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white">2</div>
+                        <div class="mb-6">
+                            <svg class="w-20 h-20 mx-auto text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Stimmung wählen</h3>
+                        <p class="text-slate-400">
+                            Auf der Landingpage wählt der Kunde, wie zufrieden er war.
+                            Ein einfacher Klick genügt.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative fade-in">
+                    <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700 text-center relative z-10">
+                        <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white">3</div>
+                        <div class="mb-6">
+                            <svg class="w-20 h-20 mx-auto text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Filter aktiviert</h3>
+                        <p class="text-slate-400">
+                            Zufriedene Kunden werden zu Google geleitet. Unzufriedene können Feedback
+                            direkt an Sie senden.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Showcase -->
+            <div class="mt-16 bg-gradient-to-r from-primary-500/10 via-primary-500/5 to-primary-500/10 rounded-3xl p-8 md:p-12 border border-primary-500/20 fade-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Das Ergebnis</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start space-x-3">
+                                <svg class="w-6 h-6 text-primary-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-slate-300">Nur positive Bewertungen auf Google</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <svg class="w-6 h-6 text-primary-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-slate-300">Direktes Feedback zur Verbesserung</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <svg class="w-6 h-6 text-primary-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-slate-300">Chance, Probleme sofort zu lösen</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <svg class="w-6 h-6 text-primary-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-slate-300">Steigende Sterne-Bewertung</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl">G</div>
+                            <div>
+                                <div class="text-white font-semibold">Ihr Unternehmen</div>
+                                <div class="text-slate-400 text-sm">Google Business Profile</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 mb-2">
+                            <div class="text-yellow-400 text-2xl">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            <span class="text-white font-bold text-xl">4.9</span>
+                            <span class="text-slate-400">(247 Bewertungen)</span>
+                        </div>
+                        <div class="text-primary-400 text-sm font-medium">+0.6 Sterne seit ReviewGuard</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="bg-slate-950 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Perfekt für jede Branche
+                </h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+                    Überall dort, wo Kundenbewertungen zählen
+                </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 fade-in">
+                <div class="bg-slate-800/50 rounded-xl p-6 text-center border border-slate-700 hover:border-primary-500/50 transition">
+                    <div class="text-4xl mb-3">&#127869;</div>
+                    <div class="text-white font-medium">Gastronomie</div>
+                </div>
+                <div class="bg-slate-800/50 rounded-xl p-6 text-center border border-slate-700 hover:border-primary-500/50 transition">
+                    <div class="text-4xl mb-3">&#127976;</div>
+                    <div class="text-white font-medium">Hotels</div>
+                </div>
+                <div class="bg-slate-800/50 rounded-xl p-6 text-center border border-slate-700 hover:border-primary-500/50 transition">
+                    <div class="text-4xl mb-3">&#128137;</div>
+                    <div class="text-white font-medium">Arztpraxen</div>
+                </div>
+                <div class="bg-slate-800/50 rounded-xl p-6 text-center border border-slate-700 hover:border-primary-500/50 transition">
+                    <div class="text-4xl mb-3">&#128663;</div>
+                    <div class="text-white font-medium">Autohäuser</div>
+                </div>
+                <div class="bg-slate-800/50 rounded-xl p-6 text-center border border-slate-700 hover:border-primary-500/50 transition">
+                    <div class="text-4xl mb-3">&#128134;</div>
+                    <div class="text-white font-medium">Friseure</div>
+                </div>
+                <div class="bg-slate-800/50 rounded-xl p-6 text-center border border-slate-700 hover:border-primary-500/50 transition">
+                    <div class="text-4xl mb-3">&#127968;</div>
+                    <div class="text-white font-medium">Immobilien</div>
+                </div>
+                <div class="bg-slate-800/50 rounded-xl p-6 text-center border border-slate-700 hover:border-primary-500/50 transition">
+                    <div class="text-4xl mb-3">&#128722;</div>
+                    <div class="text-white font-medium">Einzelhandel</div>
+                </div>
+                <div class="bg-slate-800/50 rounded-xl p-6 text-center border border-slate-700 hover:border-primary-500/50 transition">
+                    <div class="text-4xl mb-3">&#128170;</div>
+                    <div class="text-white font-medium">Fitness</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="bg-slate-900 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Transparente Preise, maximaler Wert
+                </h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+                    Alles inklusive, keine versteckten Kosten
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Starter -->
+                <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700 fade-in card-hover">
+                    <div class="text-slate-400 font-medium mb-2">Starter</div>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-4xl font-bold text-white">99</span>
+                        <span class="text-xl text-slate-400 ml-1">€</span>
+                        <span class="text-slate-500 ml-2">einmalig</span>
+                    </div>
+                    <p class="text-slate-400 mb-6">Perfekt zum Testen und für kleine Betriebe</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">1 ReviewGuard Display</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">12 Monate Service inklusive</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">Dashboard-Zugang</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">Standard Landingpage</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-slate-700 hover:bg-slate-600 text-white py-3 rounded-xl font-semibold text-center transition">
+                        Jetzt bestellen
+                    </a>
+                </div>
+
+                <!-- Professional -->
+                <div class="bg-gradient-to-b from-primary-500/20 to-slate-800 rounded-2xl p-8 border-2 border-primary-500 relative fade-in card-hover transform md:scale-105">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary-500 text-white px-4 py-1 rounded-full text-sm font-medium">
+                        Beliebteste Wahl
+                    </div>
+                    <div class="text-primary-400 font-medium mb-2">Professional</div>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-4xl font-bold text-white">249</span>
+                        <span class="text-xl text-slate-400 ml-1">€</span>
+                        <span class="text-slate-500 ml-2">einmalig</span>
+                    </div>
+                    <p class="text-slate-400 mb-6">Ideal für wachsende Unternehmen</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">5 ReviewGuard Displays</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">12 Monate Service inklusive</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">Erweitertes Dashboard</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">Individuelles Branding</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">Priority Support</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-primary-500 hover:bg-primary-600 text-white py-3 rounded-xl font-semibold text-center transition shadow-lg shadow-primary-500/25">
+                        Jetzt bestellen
+                    </a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700 fade-in card-hover">
+                    <div class="text-slate-400 font-medium mb-2">Enterprise</div>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-4xl font-bold text-white">449</span>
+                        <span class="text-xl text-slate-400 ml-1">€</span>
+                        <span class="text-slate-500 ml-2">einmalig</span>
+                    </div>
+                    <p class="text-slate-400 mb-6">Für Unternehmen mit mehreren Standorten</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">15 ReviewGuard Displays</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">12 Monate Service inklusive</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">Multi-Standort Dashboard</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">Premium Branding + Video</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">Dedizierter Account Manager</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-slate-700 hover:bg-slate-600 text-white py-3 rounded-xl font-semibold text-center transition">
+                        Kontakt aufnehmen
+                    </a>
+                </div>
+            </div>
+
+            <p class="text-center text-slate-500 mt-8 fade-in">
+                Alle Preise verstehen sich zzgl. MwSt. Nach dem ersten Jahr: 59€/Jahr Service-Gebühr.
+            </p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="bg-slate-950 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Was unsere Kunden sagen
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 fade-in">
+                    <div class="flex text-yellow-400 mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="text-slate-300 mb-6">
+                        "Seit wir ReviewGuard nutzen, haben wir unsere Google-Bewertung von 3.8 auf 4.7 Sterne verbessert.
+                        Der Filter gibt uns die Chance, unzufriedene Gäste persönlich anzusprechen."
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-primary-500/20 rounded-full flex items-center justify-center text-primary-400 font-semibold">MK</div>
+                        <div>
+                            <div class="text-white font-medium">Marco K.</div>
+                            <div class="text-slate-500 text-sm">Restaurant Bella Vista</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 fade-in">
+                    <div class="flex text-yellow-400 mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="text-slate-300 mb-6">
+                        "Die Installation war kinderleicht. Aufstellen, fertig. Unsere Patienten nutzen es gerne,
+                        und wir bekommen wertvolles Feedback zur Verbesserung unserer Praxis."
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-semibold">DS</div>
+                        <div>
+                            <div class="text-white font-medium">Dr. Sandra M.</div>
+                            <div class="text-slate-500 text-sm">Zahnarztpraxis</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 fade-in">
+                    <div class="flex text-yellow-400 mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="text-slate-300 mb-6">
+                        "Endlich haben wir die Kontrolle über unsere Online-Reputation. Negative Bewertungen
+                        erreichen uns zuerst, und wir können das Problem lösen."
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center text-purple-400 font-semibold">TW</div>
+                        <div>
+                            <div class="text-white font-medium">Thomas W.</div>
+                            <div class="text-slate-500 text-sm">AutoHaus Weber</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="bg-slate-900 py-20">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Häufig gestellte Fragen
+                </h2>
+            </div>
+            <div class="space-y-4 fade-in">
+                <!-- FAQ 1 -->
+                <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center">
+                        <span class="text-white font-medium">Ist das nicht Manipulation von Bewertungen?</span>
+                        <svg class="w-5 h-5 text-slate-400 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5">
+                        <p class="text-slate-400">
+                            Nein. ReviewGuard manipuliert keine Bewertungen. Wir bieten unzufriedenen Kunden lediglich
+                            einen alternativen Kanal, um ihr Feedback direkt an Sie zu senden. Kunden können jederzeit
+                            trotzdem eine Google-Bewertung hinterlassen. Wir geben Ihnen nur die Chance, Probleme vorher zu lösen.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center">
+                        <span class="text-white font-medium">Wie funktioniert der NFC-Chip?</span>
+                        <svg class="w-5 h-5 text-slate-400 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5">
+                        <p class="text-slate-400">
+                            NFC (Near Field Communication) ist die gleiche Technologie, die für kontaktloses Bezahlen
+                            verwendet wird. Kunden halten einfach ihr Smartphone an das Display, und die Bewertungsseite
+                            öffnet sich automatisch. Funktioniert mit allen modernen Smartphones ohne zusätzliche App.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center">
+                        <span class="text-white font-medium">Was passiert nach den ersten 12 Monaten?</span>
+                        <svg class="w-5 h-5 text-slate-400 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5">
+                        <p class="text-slate-400">
+                            Nach dem ersten Jahr fällt eine Service-Gebühr von 59€/Jahr an. Darin enthalten sind
+                            weiterhin das Hosting der Landingpage, Dashboard-Zugang, technischer Support und alle
+                            zukünftigen Updates. Sie können jederzeit kündigen.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center">
+                        <span class="text-white font-medium">Kann ich das Design anpassen?</span>
+                        <svg class="w-5 h-5 text-slate-400 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5">
+                        <p class="text-slate-400">
+                            Ja! Ab dem Professional-Paket können Sie Ihr Logo, Ihre Farben und individuellen Texte
+                            auf der Landingpage einbinden. Das Display selbst ist in einer eleganten, neutralen
+                            Optik gehalten, die zu jedem Ambiente passt.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center">
+                        <span class="text-white font-medium">Welche Bewertungsplattformen werden unterstützt?</span>
+                        <svg class="w-5 h-5 text-slate-400 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5">
+                        <p class="text-slate-400">
+                            Primär ist ReviewGuard für Google Reviews optimiert, da diese die größte Reichweite
+                            haben. Auf Anfrage können wir auch andere Plattformen wie TripAdvisor, Yelp oder
+                            branchenspezifische Portale integrieren.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="bg-gradient-to-b from-slate-900 to-slate-950 py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Bereit, Ihre Bewertungen zu verbessern?
+            </h2>
+            <p class="text-xl text-slate-400 mb-8">
+                Starten Sie jetzt und schützen Sie Ihre Online-Reputation. Kostenlose Beratung inklusive.
+            </p>
+            <div class="bg-slate-800 rounded-2xl p-8 md:p-12 border border-slate-700 max-w-2xl mx-auto">
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-slate-400 text-sm mb-2">Vorname</label>
+                            <input type="text" class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition" placeholder="Max">
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 text-sm mb-2">Nachname</label>
+                            <input type="text" class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition" placeholder="Mustermann">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 text-sm mb-2">E-Mail</label>
+                        <input type="email" class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition" placeholder="max@beispiel.de">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 text-sm mb-2">Unternehmen</label>
+                        <input type="text" class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition" placeholder="Ihr Unternehmen">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 text-sm mb-2">Nachricht (optional)</label>
+                        <textarea rows="3" class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition resize-none" placeholder="Erzählen Sie uns von Ihrem Unternehmen..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary-500 hover:bg-primary-600 text-white py-4 rounded-xl font-semibold text-lg transition shadow-lg shadow-primary-500/25">
+                        Kostenlos beraten lassen
+                    </button>
+                </form>
+                <p class="text-slate-500 text-sm mt-4">
+                    Wir melden uns innerhalb von 24 Stunden bei Ihnen.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-primary-500 rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-white">ReviewGuard</span>
+                    </div>
+                    <p class="text-slate-400">
+                        Intelligentes Bewertungsmanagement für moderne Unternehmen.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Produkt</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-slate-400 hover:text-white transition">Funktionen</a></li>
+                        <li><a href="#pricing" class="text-slate-400 hover:text-white transition">Preise</a></li>
+                        <li><a href="#faq" class="text-slate-400 hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Rechtliches</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">Impressum</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">Datenschutz</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">AGB</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Kontakt</h4>
+                    <ul class="space-y-2">
+                        <li class="text-slate-400">info@reviewguard.de</li>
+                        <li class="text-slate-400">+49 123 456 789</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center">
+                <p class="text-slate-500">
+                    &copy; 2024 ReviewGuard. Alle Rechte vorbehalten.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('.faq-icon');
+
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Counter animation
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value.toLocaleString() + (element.dataset.suffix || '');
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+    </script>
+</body>
+</html>
