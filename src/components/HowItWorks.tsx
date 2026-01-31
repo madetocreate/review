@@ -26,7 +26,7 @@ export default function HowItWorks() {
           >
             <div className="rounded-3xl overflow-hidden shadow-xl">
               <Image
-                src="/hero-customers.png"
+                src="/how-it-works.png"
                 alt="Happy customers scanning QR code"
                 width={1792}
                 height={1024}

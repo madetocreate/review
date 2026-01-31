@@ -28,9 +28,9 @@ export default function SocialProof() {
         >
           {[
             { value: '2,500+', label: t('businesses') },
-            { value: '4.8★', label: t('avgRating') },
+            { value: '4.9★', label: t('avgRating') },
             { value: '150K+', label: t('reviews') },
-            { value: '97%', label: t('satisfaction') },
+            { value: '98%', label: t('satisfaction') },
           ].map((stat, i) => (
             <motion.div
               key={i}

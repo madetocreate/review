@@ -13,7 +13,7 @@ export default function LifestyleBreak() {
       className="relative h-[50vh] md:h-[60vh] overflow-hidden"
     >
       <Image
-        src="/hero-customers.png"
+        src="/lifestyle-cafe.png"
         alt="Lifestyle"
         fill
         className="object-cover"

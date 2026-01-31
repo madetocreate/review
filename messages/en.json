@@ -48,7 +48,10 @@
   "stats": {
     "avgRating": "Avg. Rating",
     "positive": "Positive",
-    "moreGuests": "More Customers"
+    "moreGuests": "More Customers",
+    "displays": "Active Displays",
+    "moreReviews": "More Reviews",
+    "setupTime": "Setup Time"
   },
   "showcase": {
     "label": "Showcase",

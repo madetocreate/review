@@ -58,9 +58,9 @@ export default function Benefits() {
           className="grid grid-cols-3 gap-8 py-12 border-t border-b border-gray-100"
         >
           {[
-            { value: '5,300+', label: ts('avgRating') },
-            { value: '97%', label: ts('positive') },
-            { value: '+35%', label: ts('moreGuests') },
+            { value: '850+', label: ts('displays') },
+            { value: '4×', label: ts('moreReviews') },
+            { value: '30 Sek.', label: ts('setupTime') },
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <div className="text-3xl md:text-5xl font-bold text-gray-900 mb-1">{stat.value}</div>

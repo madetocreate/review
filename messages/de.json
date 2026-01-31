@@ -48,7 +48,10 @@
   "stats": {
     "avgRating": "Ø Bewertung",
     "positive": "Positiv",
-    "moreGuests": "Mehr Kunden"
+    "moreGuests": "Mehr Kunden",
+    "displays": "Aktive Displays",
+    "moreReviews": "Mehr Bewertungen",
+    "setupTime": "Einrichtungszeit"
   },
   "showcase": {
     "label": "Showcase",

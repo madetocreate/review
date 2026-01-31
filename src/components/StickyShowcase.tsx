@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-const images = ['/hero-customers.png', '/product-flatlay.png', '/cafe-interior.png'];
+const images = ['/display-single.png', '/display-tap.png', '/display-lineup.png'];
 
 export default function StickyShowcase() {
   const t = useTranslations('showcase');
@@ -47,7 +47,7 @@ export default function StickyShowcase() {
                     <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{tHow(card.key + 'Title')}</h3>
                     <p className="text-gray-500 text-lg leading-relaxed">{tHow(card.key + 'Desc')}</p>
                   </div>
-                  <div className="aspect-[4/3] md:aspect-auto">
+                  <div className="h-[250px] md:h-full">
                     <Image
                       src={card.img}
                       alt={tHow(card.key + 'Title')}
