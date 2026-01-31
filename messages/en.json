@@ -149,7 +149,21 @@
     "enterprise": "Enterprise",
     "enterpriseDesc": "5x Table Display + 10x NFC Cards + Wall Display",
     "popular": "Popular",
-    "perMonth": "one-time"
+    "perMonth": "one-time",
+    "starter_feature1": "1× Premium Table Display",
+    "starter_feature2": "QR Code + NFC Chip",
+    "starter_feature3": "Feedback Dashboard",
+    "professional_feature1": "2× Premium Table Display",
+    "professional_feature2": "5× NFC Review Cards",
+    "professional_feature3": "QR Code + NFC Chip",
+    "professional_feature4": "Feedback Dashboard",
+    "professional_feature5": "Priority Support",
+    "enterprise_feature1": "5× Premium Table Display",
+    "enterprise_feature2": "10× NFC Review Cards",
+    "enterprise_feature3": "1× Wall Display",
+    "enterprise_feature4": "QR Code + NFC Chip",
+    "enterprise_feature5": "Feedback Dashboard",
+    "enterprise_feature6": "Premium Support & Setup"
   },
   "contact": {
     "label": "Contact",
@@ -173,5 +187,18 @@
     "title": "Ready for Better Reviews?",
     "subtitle": "Start today and see the results for yourself.",
     "button": "Get Started"
+  },
+  "chatbot": {
+    "title": "Review Filter Support",
+    "subtitle": "We usually reply instantly",
+    "welcome": "Hello! 👋 How can I help you with the Review Filter?",
+    "placeholder": "Type a message...",
+    "q1": "How much does it cost?",
+    "q2": "How does it work?",
+    "q3": "Which industries?",
+    "a1": "Our packages start at €49 one-time for the Starter package. Professional is €99 and Enterprise is €199. No monthly fees!",
+    "a2": "Customers scan the QR code or tap the NFC chip. Happy ones are directed to Google, unhappy ones send you private feedback. You only collect positive reviews!",
+    "a3": "The Review Filter is suitable for all industries: restaurants, hotels, retail, medical practices, hair salons, auto repair shops and many more.",
+    "aDefault": "Thanks for your question! For personal advice, please use our contact form or write to us directly. We'll get back to you quickly!"
   }
 }

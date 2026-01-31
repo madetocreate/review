@@ -24,13 +24,13 @@ export default function HowItWorks() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="rounded-3xl overflow-hidden">
+            <div className="rounded-3xl overflow-hidden shadow-xl">
               <Image
                 src="/hero-customers.png"
                 alt="Happy customers scanning QR code"
-                width={896}
-                height={512}
-                className="w-full h-auto object-cover"
+                width={1792}
+                height={1024}
+                className="w-full h-[400px] lg:h-[520px] object-cover"
               />
             </div>
           </motion.div>
@@ -40,7 +40,6 @@ export default function HowItWorks() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
               className="text-accent font-semibold text-sm uppercase tracking-wider mb-4"
             >
               {t('label')}
@@ -49,7 +48,7 @@ export default function HowItWorks() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ delay: 0.1 }}
               className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6"
             >
               {t('title')}
@@ -58,7 +57,7 @@ export default function HowItWorks() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ delay: 0.2 }}
               className="text-gray-500 text-lg mb-10 leading-relaxed"
             >
               {t('description')}

@@ -149,7 +149,21 @@
     "enterprise": "Enterprise",
     "enterpriseDesc": "5× Tisch-Display + 10× NFC-Karten + Wand-Display",
     "popular": "Beliebt",
-    "perMonth": "einmalig"
+    "perMonth": "einmalig",
+    "starter_feature1": "1× Premium Tisch-Display",
+    "starter_feature2": "QR-Code + NFC-Chip",
+    "starter_feature3": "Feedback-Dashboard",
+    "professional_feature1": "2× Premium Tisch-Display",
+    "professional_feature2": "5× NFC Review Karten",
+    "professional_feature3": "QR-Code + NFC-Chip",
+    "professional_feature4": "Feedback-Dashboard",
+    "professional_feature5": "Prioritäts-Support",
+    "enterprise_feature1": "5× Premium Tisch-Display",
+    "enterprise_feature2": "10× NFC Review Karten",
+    "enterprise_feature3": "1× Wand-Display",
+    "enterprise_feature4": "QR-Code + NFC-Chip",
+    "enterprise_feature5": "Feedback-Dashboard",
+    "enterprise_feature6": "Premium Support & Setup"
   },
   "contact": {
     "label": "Kontakt",
@@ -173,5 +187,18 @@
     "title": "Bereit für bessere Bewertungen?",
     "subtitle": "Starte jetzt und überzeuge dich selbst.",
     "button": "Jetzt starten"
+  },
+  "chatbot": {
+    "title": "Review Filter Support",
+    "subtitle": "Meistens antworten wir sofort",
+    "welcome": "Hallo! 👋 Wie kann ich dir beim Review Filter helfen?",
+    "placeholder": "Schreib eine Nachricht...",
+    "q1": "Was kostet es?",
+    "q2": "Wie funktioniert es?",
+    "q3": "Für welche Branchen?",
+    "a1": "Unsere Pakete starten ab €49 einmalig für das Starter-Paket. Das Professional-Paket kostet €99 und Enterprise €199. Keine monatlichen Gebühren!",
+    "a2": "Kunden scannen den QR-Code oder tippen den NFC-Chip. Zufriedene werden zu Google geleitet, unzufriedene geben dir privates Feedback. So sammelst du nur positive Bewertungen!",
+    "a3": "Der Review Filter eignet sich für alle Branchen: Gastronomie, Hotels, Einzelhandel, Arztpraxen, Friseursalons, Autowerkstätten und viele mehr.",
+    "aDefault": "Danke für deine Frage! Für eine persönliche Beratung nutze bitte unser Kontaktformular oder schreib uns direkt. Wir melden uns schnell zurück!"
   }
 }

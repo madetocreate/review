@@ -23,7 +23,6 @@ export default function StickyShowcase() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
         >
           <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-4">{t('label')}</p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">{t('title')}</h2>
@@ -32,7 +31,7 @@ export default function StickyShowcase() {
       </div>
 
       <div className="relative px-6 pb-32">
-        <div className="max-w-4xl mx-auto space-y-6 pt-16">
+        <div className="max-w-5xl mx-auto space-y-6 pt-16">
           {cards.map((card, i) => (
             <div key={card.key} className="sticky" style={{ top: card.top }}>
               <motion.div
@@ -42,18 +41,18 @@ export default function StickyShowcase() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="rounded-3xl border border-gray-200 bg-white shadow-lg overflow-hidden"
               >
-                <div className="grid md:grid-cols-2 md:h-[340px]">
-                  <div className="p-10 md:p-12 flex flex-col justify-center">
+                <div className="grid md:grid-cols-2 md:h-[400px]">
+                  <div className="p-10 md:p-14 flex flex-col justify-center">
                     <span className="text-accent text-sm font-bold mb-3">{'0' + (i + 1)}</span>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">{tHow(card.key + 'Title')}</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{tHow(card.key + 'Title')}</h3>
                     <p className="text-gray-500 text-lg leading-relaxed">{tHow(card.key + 'Desc')}</p>
                   </div>
                   <div className="aspect-[4/3] md:aspect-auto">
                     <Image
                       src={card.img}
                       alt={tHow(card.key + 'Title')}
-                      width={600}
-                      height={400}
+                      width={1792}
+                      height={1024}
                       className="w-full h-full object-cover"
                     />
                   </div>

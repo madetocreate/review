@@ -27,14 +27,14 @@ export default function SuccessStories() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="rounded-3xl overflow-hidden"
+            className="rounded-3xl overflow-hidden shadow-2xl"
           >
             <Image
               src="/cafe-interior.png"
               alt="Happy cafe"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover"
+              width={1792}
+              height={1024}
+              className="w-full h-[350px] lg:h-[420px] object-cover"
             />
           </motion.div>
           <motion.div

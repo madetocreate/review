@@ -9,9 +9,9 @@ export default function Hero() {
   const ts = useTranslations('stats');
 
   return (
-    <section className="relative min-h-screen flex items-center bg-white pt-20">
+    <section className="relative bg-white pt-24 pb-0">
       <div className="max-w-7xl mx-auto px-6 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[80vh]">
           <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-lg text-gray-500 max-w-md mb-10 leading-relaxed"
+              className="text-xl text-gray-500 max-w-md mb-10 leading-relaxed"
             >
               {t('subtitle')}
             </motion.p>
@@ -46,10 +46,10 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.45 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <a href="#shop" className="px-8 py-4 bg-gray-900 text-white font-semibold rounded-full hover:bg-gray-800 transition-colors text-center">
+              <a href="#how-it-works" className="px-10 py-4 bg-gray-900 text-white font-semibold rounded-full hover:bg-gray-800 transition-colors text-center text-lg">
                 {t('cta')}
               </a>
-              <a href="#how-it-works" className="px-8 py-4 border border-gray-200 text-gray-700 font-semibold rounded-full hover:bg-gray-50 transition-colors text-center">
+              <a href="#how-it-works" className="px-10 py-4 border border-gray-200 text-gray-700 font-semibold rounded-full hover:bg-gray-50 transition-colors text-center text-lg">
                 {t('ctaSecondary')}
               </a>
             </motion.div>
@@ -81,13 +81,13 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="rounded-3xl overflow-hidden">
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src="/hero-owner.png"
                 alt="Restaurant owner"
-                width={896}
-                height={512}
-                className="w-full h-auto object-cover"
+                width={1792}
+                height={1024}
+                className="w-full h-[500px] lg:h-[600px] object-cover"
                 priority
               />
             </div>

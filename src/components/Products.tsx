@@ -75,14 +75,14 @@ export default function Products() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-3xl overflow-hidden"
+            className="rounded-3xl overflow-hidden shadow-xl"
           >
             <Image
               src="/product-flatlay.png"
               alt="Review Filter products"
-              width={600}
-              height={600}
-              className="w-full h-auto object-cover"
+              width={1792}
+              height={1024}
+              className="w-full h-[400px] lg:h-[520px] object-cover"
             />
           </motion.div>
         </div>

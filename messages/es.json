@@ -149,7 +149,21 @@
     "enterprise": "Enterprise",
     "enterpriseDesc": "5x Display de Mesa + 10x Tarjetas NFC + Display de Pared",
     "popular": "Popular",
-    "perMonth": "único pago"
+    "perMonth": "único pago",
+    "starter_feature1": "1× Display de Mesa Premium",
+    "starter_feature2": "Código QR + Chip NFC",
+    "starter_feature3": "Panel de Feedback",
+    "professional_feature1": "2× Display de Mesa Premium",
+    "professional_feature2": "5× Tarjetas NFC Review",
+    "professional_feature3": "Código QR + Chip NFC",
+    "professional_feature4": "Panel de Feedback",
+    "professional_feature5": "Soporte Prioritario",
+    "enterprise_feature1": "5× Display de Mesa Premium",
+    "enterprise_feature2": "10× Tarjetas NFC Review",
+    "enterprise_feature3": "1× Display de Pared",
+    "enterprise_feature4": "Código QR + Chip NFC",
+    "enterprise_feature5": "Panel de Feedback",
+    "enterprise_feature6": "Soporte Premium & Setup"
   },
   "contact": {
     "label": "Contacto",
@@ -173,5 +187,18 @@
     "title": "¿Listo para Mejores Reseñas?",
     "subtitle": "Empieza hoy y comprueba los resultados.",
     "button": "Empezar Ahora"
+  },
+  "chatbot": {
+    "title": "Review Filter Soporte",
+    "subtitle": "Normalmente respondemos al instante",
+    "welcome": "¡Hola! 👋 ¿Cómo puedo ayudarte con el Review Filter?",
+    "placeholder": "Escribe un mensaje...",
+    "q1": "¿Cuánto cuesta?",
+    "q2": "¿Cómo funciona?",
+    "q3": "¿Para qué industrias?",
+    "a1": "Nuestros paquetes empiezan desde €49 pago único para el Starter. Professional cuesta €99 y Enterprise €199. ¡Sin cuotas mensuales!",
+    "a2": "Los clientes escanean el QR o tocan el chip NFC. Los satisfechos van a Google, los insatisfechos te envían feedback privado. ¡Solo recoges reseñas positivas!",
+    "a3": "El Review Filter es adecuado para todas las industrias: restaurantes, hoteles, comercio, consultorios, peluquerías, talleres y muchos más.",
+    "aDefault": "¡Gracias por tu pregunta! Para asesoramiento personal, usa nuestro formulario de contacto o escríbenos directamente. ¡Te respondemos rápido!"
   }
 }
