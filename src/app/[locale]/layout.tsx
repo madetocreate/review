@@ -13,6 +13,22 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: t('title'),
     description: t('description'),
+    icons: {
+      icon: '/favicon.ico',
+      apple: '/apple-touch-icon.png',
+    },
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      images: [{ url: 'https://review.studiomeyer.io/og-image.png', width: 1792, height: 1024 }],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
+      images: ['https://review.studiomeyer.io/og-image.png'],
+    },
   };
 }
 
