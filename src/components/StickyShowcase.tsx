@@ -42,7 +42,7 @@ export default function StickyShowcase() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="rounded-3xl border border-gray-200 bg-white shadow-lg overflow-hidden"
               >
-                <div className="grid md:grid-cols-2">
+                <div className="grid md:grid-cols-2 md:h-[340px]">
                   <div className="p-10 md:p-12 flex flex-col justify-center">
                     <span className="text-accent text-sm font-bold mb-3">{'0' + (i + 1)}</span>
                     <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">{tHow(card.key + 'Title')}</h3>

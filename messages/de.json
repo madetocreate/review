@@ -5,11 +5,9 @@
   },
   "nav": {
     "home": "Start",
-    "howItWorks": "So funktioniert's",
-    "benefits": "Vorteile",
     "products": "Produkte",
-    "showcase": "Showcase",
-    "shop": "Shop",
+    "prices": "Preise",
+    "success": "Erfolge",
     "contact": "Kontakt"
   },
   "hero": {
@@ -18,6 +16,13 @@
     "subtitle": "Der weltweit einzige intelligente Bewertungsfilter für dein Unternehmen.",
     "cta": "Jetzt entdecken",
     "ctaSecondary": "So funktioniert's"
+  },
+  "socialProof": {
+    "title": "Vertraut von Unternehmen in ganz Europa",
+    "businesses": "Unternehmen",
+    "avgRating": "Ø Bewertung",
+    "reviews": "Gefilterte Reviews",
+    "satisfaction": "Zufriedenheit"
   },
   "howItWorks": {
     "label": "So funktioniert's",
@@ -61,6 +66,74 @@
     "wallDisplay": "Wand-Display",
     "wallDisplayDesc": "Professionelles Display zur Wandmontage. Optimal für Wartebereiche und Eingangszonen."
   },
+  "comparison": {
+    "label": "Vergleich",
+    "title": "Mit vs. Ohne Review Filter",
+    "feature": "Merkmal",
+    "without": "Ohne",
+    "with": "Mit Review Filter",
+    "row1": "Negative Bewertungen auf Google",
+    "row2": "Direktes Kundenfeedback",
+    "row3": "Automatische Filterung",
+    "row4": "Steigende Sternebewertung",
+    "row5": "Mehr Neukunden durch Bewertungen"
+  },
+  "madeInGermany": {
+    "label": "Qualität",
+    "title": "Handgemacht in Deutschland",
+    "description": "Jedes Review Filter Display wird in unserer Manufaktur in Deutschland gefertigt. Hochwertige Materialien, präzise Verarbeitung und nachhaltige Produktion.",
+    "badge": "Made in Germany",
+    "quality1Title": "Premium Materialien",
+    "quality1Desc": "Acrylglas, gebürstetes Aluminium und langlebige NFC-Chips für jahrelangen Einsatz.",
+    "quality2Title": "Handwerkliche Fertigung",
+    "quality2Desc": "Jedes Display wird einzeln geprüft und mit Sorgfalt in Deutschland hergestellt.",
+    "quality3Title": "Nachhaltig & Langlebig",
+    "quality3Desc": "Robuste Konstruktion für den täglichen Gastro-Einsatz. Keine Einweg-Produkte."
+  },
+  "testimonials": {
+    "label": "Kundenstimmen",
+    "title": "Das sagen unsere Partner",
+    "t1Text": "Seit wir den Review Filter nutzen, haben wir unsere Google-Bewertung von 3,9 auf 4,7 verbessert. Die Gäste lieben das einfache System.",
+    "t1Name": "Maria Schneider",
+    "t1Role": "Inhaberin, Café Sonnenschein",
+    "t2Text": "Endlich keine unfairen 1-Stern-Bewertungen mehr! Das Feedback bekommen wir jetzt direkt und können sofort reagieren.",
+    "t2Name": "Thomas Berger",
+    "t2Role": "Geschäftsführer, Berger's Steakhouse",
+    "t3Text": "Das Display sieht hochwertig aus und passt perfekt zu unserem Interior. Unsere Kunden scannen den Code gerne.",
+    "t3Name": "Lena Hoffmann",
+    "t3Role": "Managerin, Boutique Hotel Alpenblick"
+  },
+  "successStories": {
+    "label": "Erfolgsgeschichten",
+    "title": "Das sagen unsere Kunden",
+    "story1": "Wir haben unsere Google-Bewertungen von 4,3 auf 4,8 gehoben – in nur wenigen Wochen!",
+    "story1Author": "Daniel, Leo's Grill Portals"
+  },
+  "industries": {
+    "title": "Für jede Branche",
+    "gastro": "Gastronomie & Hotellerie",
+    "retail": "Einzelhandel",
+    "health": "Gesundheitswesen",
+    "beauty": "Wellness & Beauty",
+    "auto": "Automobilbranche",
+    "services": "Dienstleistungen"
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Häufig gestellte Fragen",
+    "faq1Q": "Wie funktioniert der Review Filter genau?",
+    "faq1A": "Der Kunde scannt den QR-Code oder tippt den NFC-Chip. Auf einer Zwischenseite wird er gefragt, wie zufrieden er war. Zufriedene Kunden werden direkt zu Google weitergeleitet, unzufriedene können dir privates Feedback geben.",
+    "faq2Q": "Ist das legal?",
+    "faq2A": "Ja, absolut. Wir fordern keine gefälschten Bewertungen und manipulieren keine bestehenden. Wir bieten lediglich einen intelligenten Weg, wie Kunden ihr Feedback abgeben – positiv auf Google, konstruktiv direkt an dich.",
+    "faq3Q": "Wie schnell sehe ich Ergebnisse?",
+    "faq3A": "Die meisten unserer Partner berichten von einer spürbaren Verbesserung innerhalb der ersten 2–4 Wochen. Je nach Kundenfrequenz kann es auch schneller gehen.",
+    "faq4Q": "Brauchen meine Kunden eine App?",
+    "faq4A": "Nein! Einfach den QR-Code scannen oder den NFC-Chip antippen – fertig. Keine App, kein Login, kein Aufwand für deine Kunden.",
+    "faq5Q": "Für welche Branchen eignet sich der Review Filter?",
+    "faq5A": "Für alle Branchen mit Kundenkontakt: Gastronomie, Hotels, Einzelhandel, Arztpraxen, Friseursalons, Autowerkstätten, Dienstleister und viele mehr.",
+    "faq6Q": "Was ist im Preis enthalten?",
+    "faq6A": "Du erhältst das physische Display (Tisch, Wand oder Karte), den eingerichteten QR-Code und NFC-Chip, sowie Zugang zu deinem Feedback-Dashboard. Keine monatlichen Gebühren."
+  },
   "shop": {
     "label": "Shop",
     "title": "Jetzt bestellen",
@@ -77,21 +150,6 @@
     "enterpriseDesc": "5× Tisch-Display + 10× NFC-Karten + Wand-Display",
     "popular": "Beliebt",
     "perMonth": "einmalig"
-  },
-  "successStories": {
-    "label": "Erfolgsgeschichten",
-    "title": "Das sagen unsere Kunden",
-    "story1": "Wir haben unsere Google-Bewertungen von 4,3 auf 4,8 gehoben – in nur wenigen Wochen!",
-    "story1Author": "Daniel, Leo's Grill Portals"
-  },
-  "industries": {
-    "title": "Für jede Branche",
-    "gastro": "Gastronomie & Hotellerie",
-    "retail": "Einzelhandel",
-    "health": "Gesundheitswesen",
-    "beauty": "Wellness & Beauty",
-    "auto": "Automobilbranche",
-    "services": "Dienstleistungen"
   },
   "contact": {
     "label": "Kontakt",

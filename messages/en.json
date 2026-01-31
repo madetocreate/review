@@ -5,11 +5,9 @@
   },
   "nav": {
     "home": "Home",
-    "howItWorks": "How It Works",
-    "benefits": "Benefits",
     "products": "Products",
-    "showcase": "Showcase",
-    "shop": "Shop",
+    "prices": "Pricing",
+    "success": "Success",
     "contact": "Contact"
   },
   "hero": {
@@ -18,6 +16,13 @@
     "subtitle": "The world's only intelligent review filter for your business.",
     "cta": "Discover Now",
     "ctaSecondary": "How It Works"
+  },
+  "socialProof": {
+    "title": "Trusted by businesses across Europe",
+    "businesses": "Businesses",
+    "avgRating": "Avg. Rating",
+    "reviews": "Filtered Reviews",
+    "satisfaction": "Satisfaction"
   },
   "howItWorks": {
     "label": "How It Works",
@@ -55,28 +60,48 @@
     "title": "Handcrafted. Smart. Effective.",
     "description": "Our displays feature QR codes and NFC chips for quick, frictionless reviews.",
     "tableDisplay": "Table Display",
-    "tableDisplayDesc": "Elegant stand with QR code and integrated NFC chip. Perfect for restaurants, cafés and hotels.",
+    "tableDisplayDesc": "Elegant stand with QR code and integrated NFC chip. Perfect for restaurants, cafes and hotels.",
     "nfcCard": "NFC Review Card",
     "nfcCardDesc": "Compact card with NFC technology. Ideal for mobile use and personal handover.",
     "wallDisplay": "Wall Display",
     "wallDisplayDesc": "Professional wall-mounted display. Optimal for waiting areas and entrance zones."
   },
-  "shop": {
-    "label": "Shop",
-    "title": "Order Now",
-    "description": "Choose the right package for your business.",
-    "addToCart": "Add to Cart",
-    "price": "Price",
-    "includes": "Includes",
-    "buyNow": "Buy Now",
-    "starter": "Starter",
-    "starterDesc": "1× Table Display with QR & NFC",
-    "professional": "Professional",
-    "professionalDesc": "2× Table Display + 5× NFC Cards",
-    "enterprise": "Enterprise",
-    "enterpriseDesc": "5× Table Display + 10× NFC Cards + Wall Display",
-    "popular": "Popular",
-    "perMonth": "one-time"
+  "comparison": {
+    "label": "Comparison",
+    "title": "With vs. Without Review Filter",
+    "feature": "Feature",
+    "without": "Without",
+    "with": "With Review Filter",
+    "row1": "Negative reviews on Google",
+    "row2": "Direct customer feedback",
+    "row3": "Automatic filtering",
+    "row4": "Rising star rating",
+    "row5": "More new customers from reviews"
+  },
+  "madeInGermany": {
+    "label": "Quality",
+    "title": "Handcrafted in Germany",
+    "description": "Every Review Filter display is manufactured in our workshop in Germany. Premium materials, precision craftsmanship and sustainable production.",
+    "badge": "Made in Germany",
+    "quality1Title": "Premium Materials",
+    "quality1Desc": "Acrylic glass, brushed aluminum and durable NFC chips for years of use.",
+    "quality2Title": "Artisan Craftsmanship",
+    "quality2Desc": "Each display is individually inspected and carefully made in Germany.",
+    "quality3Title": "Sustainable & Durable",
+    "quality3Desc": "Robust construction for daily hospitality use. No disposable products."
+  },
+  "testimonials": {
+    "label": "Testimonials",
+    "title": "What Our Partners Say",
+    "t1Text": "Since using Review Filter, we've improved our Google rating from 3.9 to 4.7. Guests love the simple system.",
+    "t1Name": "Maria Schneider",
+    "t1Role": "Owner, Cafe Sonnenschein",
+    "t2Text": "Finally no more unfair 1-star reviews! We now get feedback directly and can react immediately.",
+    "t2Name": "Thomas Berger",
+    "t2Role": "CEO, Berger's Steakhouse",
+    "t3Text": "The display looks premium and fits perfectly with our interior. Our customers love scanning the code.",
+    "t3Name": "Lena Hoffmann",
+    "t3Role": "Manager, Boutique Hotel Alpenblick"
   },
   "successStories": {
     "label": "Success Stories",
@@ -92,6 +117,39 @@
     "beauty": "Wellness & Beauty",
     "auto": "Automotive",
     "services": "Professional Services"
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Frequently Asked Questions",
+    "faq1Q": "How exactly does the Review Filter work?",
+    "faq1A": "The customer scans the QR code or taps the NFC chip. On an intermediate page, they're asked about their satisfaction. Happy customers are directed to Google, unhappy ones can send you private feedback.",
+    "faq2Q": "Is this legal?",
+    "faq2A": "Yes, absolutely. We don't solicit fake reviews or manipulate existing ones. We simply offer a smart way for customers to share feedback — positive on Google, constructive directly to you.",
+    "faq3Q": "How quickly will I see results?",
+    "faq3A": "Most of our partners report noticeable improvement within the first 2-4 weeks. Depending on customer traffic, it can happen even faster.",
+    "faq4Q": "Do my customers need an app?",
+    "faq4A": "No! Just scan the QR code or tap the NFC chip — done. No app, no login, zero effort for your customers.",
+    "faq5Q": "Which industries is the Review Filter suitable for?",
+    "faq5A": "All industries with customer contact: restaurants, hotels, retail, medical practices, hair salons, auto repair shops, service providers and many more.",
+    "faq6Q": "What's included in the price?",
+    "faq6A": "You receive the physical display (table, wall or card), the configured QR code and NFC chip, plus access to your feedback dashboard. No monthly fees."
+  },
+  "shop": {
+    "label": "Shop",
+    "title": "Order Now",
+    "description": "Choose the right package for your business.",
+    "addToCart": "Add to Cart",
+    "price": "Price",
+    "includes": "Includes",
+    "buyNow": "Buy Now",
+    "starter": "Starter",
+    "starterDesc": "1x Table Display with QR & NFC",
+    "professional": "Professional",
+    "professionalDesc": "2x Table Display + 5x NFC Cards",
+    "enterprise": "Enterprise",
+    "enterpriseDesc": "5x Table Display + 10x NFC Cards + Wall Display",
+    "popular": "Popular",
+    "perMonth": "one-time"
   },
   "contact": {
     "label": "Contact",

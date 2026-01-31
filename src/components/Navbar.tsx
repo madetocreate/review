@@ -1,20 +1,20 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import LanguageSwitcher from './LanguageSwitcher';
 
 const navItems = [
-  { key: 'howItWorks', href: '#how-it-works' },
-  { key: 'benefits', href: '#benefits' },
-  { key: 'showcase', href: '#showcase' },
-  { key: 'shop', href: '#shop' },
-  { key: 'contact', href: '#contact' },
+  { key: 'products', href: '/produkte' },
+  { key: 'prices', href: '/preise' },
+  { key: 'success', href: '/erfolge' },
+  { key: 'contact', href: '/kontakt' },
 ];
 
 export default function Navbar() {
   const t = useTranslations('nav');
+  const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -35,7 +35,7 @@ export default function Navbar() {
       }
     >
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-        <a href="#" className="text-xl font-bold tracking-tight text-gray-900">
+        <a href={'/' + locale} className="text-xl font-bold tracking-tight text-gray-900">
           review<span className="text-accent">filter</span>
         </a>
 
@@ -43,7 +43,7 @@ export default function Navbar() {
           {navItems.map((item) => (
             <a
               key={item.key}
-              href={item.href}
+              href={'/' + locale + item.href}
               className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
             >
               {t(item.key)}
@@ -70,7 +70,7 @@ export default function Navbar() {
           className="md:hidden bg-white border-t border-gray-100 px-6 py-8 flex flex-col gap-6"
         >
           {navItems.map((item) => (
-            <a key={item.key} href={item.href} onClick={() => setMobileOpen(false)} className="text-lg text-gray-700 hover:text-gray-900">
+            <a key={item.key} href={'/' + locale + item.href} onClick={() => setMobileOpen(false)} className="text-lg text-gray-700 hover:text-gray-900">
               {t(item.key)}
             </a>
           ))}
