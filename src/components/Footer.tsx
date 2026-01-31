@@ -10,7 +10,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="py-12 bg-black border-t border-white/10">
+    <footer className="py-12 bg-gray-900 border-t border-gray-800">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0 }}
@@ -20,7 +20,7 @@ export default function Footer() {
           className="flex flex-col items-center gap-8"
         >
           <div className="text-2xl font-bold text-white">
-            REVIEW<span className="text-emerald-400">+</span>FILTER
+            review<span className="text-accent">+</span>filter
           </div>
 
           <div className="flex flex-wrap justify-center gap-6">
@@ -28,18 +28,18 @@ export default function Footer() {
               <a
                 key={key}
                 href={'#' + key}
-                className="text-sm text-white/40 hover:text-emerald-400 transition-colors duration-300"
+                className="text-sm text-gray-400 hover:text-white transition-colors"
               >
                 {t(key)}
               </a>
             ))}
           </div>
 
-          <p className="text-sm text-white/30">
+          <p className="text-sm text-gray-300">
             {t('copyright', { year: String(year) })}
           </p>
 
-          <p className="text-xs text-white/20 max-w-lg text-center">
+          <p className="text-xs text-gray-400 max-w-lg text-center">
             {t('disclaimer')}
           </p>
         </motion.div>

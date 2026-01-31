@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const industryKeys = ['gastro', 'retail', 'health', 'beauty', 'auto', 'services'] as const;
 
@@ -10,38 +11,50 @@ export default function SuccessStories() {
   const ti = useTranslations('industries');
 
   return (
-    <section id="success-stories" className="py-24 bg-black">
+    <section id="success-stories" className="py-28 bg-gray-900 text-white">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-white text-center mb-16"
+          className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-16"
         >
           {t('title')}
         </motion.h2>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto mb-20 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-10 text-center"
-        >
-          <p className="text-xl text-white/80 italic leading-relaxed mb-6">
-            &ldquo;{t('story1')}&rdquo;
-          </p>
-          <p className="text-emerald-400 font-medium">{t('story1Author')}</p>
-        </motion.div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="rounded-3xl overflow-hidden"
+          >
+            <Image
+              src="/cafe-interior.png"
+              alt="Happy cafe"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-2xl md:text-3xl font-medium leading-relaxed text-gray-200 mb-8">
+              &ldquo;{t('story1')}&rdquo;
+            </p>
+            <p className="text-accent font-semibold text-lg">{t('story1Author')}</p>
+          </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
         >
-          <h3 className="text-2xl font-semibold text-white text-center mb-8">
+          <h3 className="text-xl font-semibold text-center mb-8 text-gray-300">
             {ti('title')}
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
@@ -51,8 +64,8 @@ export default function SuccessStories() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.08 }}
-                className="px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-white/70 text-sm hover:border-emerald-500/50 hover:text-emerald-400 transition-colors duration-300"
+                transition={{ duration: 0.3, delay: i * 0.06 }}
+                className="px-5 py-2.5 rounded-full border border-gray-700 text-gray-300 text-sm hover:border-accent hover:text-accent transition-colors"
               >
                 {ti(key)}
               </motion.span>

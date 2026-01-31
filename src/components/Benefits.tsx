@@ -15,64 +15,59 @@ export default function Benefits() {
   const ts = useTranslations('stats');
 
   return (
-    <section id="benefits" className="relative py-32 bg-black">
+    <section id="benefits" className="py-28 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm font-medium mb-6">
-            {t('label')}
-          </span>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">{t('title')}</h2>
+          <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-4">{t('label')}</p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">{t('title')}</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-20">
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
           {benefits.map((b, i) => {
             const Icon = b.icon;
             return (
               <motion.div
                 key={b.key}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.12 }}
-                className="p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-colors group"
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="text-center"
               >
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
-                  <Icon className="w-6 h-6 text-accent" />
+                <div className="w-14 h-14 rounded-2xl bg-gray-900 flex items-center justify-center mx-auto mb-5">
+                  <Icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{t(`${b.key}Title`)}</h3>
-                <p className="text-white/50 leading-relaxed">{t(`${b.key}Desc`)}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{t(b.key + 'Title')}</h3>
+                <p className="text-gray-500 leading-relaxed">{t(b.key + 'Desc')}</p>
               </motion.div>
             );
           })}
         </div>
 
-        <div className="grid grid-cols-3 gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-3 gap-8 py-12 border-t border-b border-gray-100"
+        >
           {[
-            { value: '4.8', label: ts('avgRating'), suffix: '★' },
-            { value: '97', label: ts('positive'), suffix: '%' },
-            { value: '+35', label: ts('moreGuests'), suffix: '%' },
+            { value: '5,300+', label: ts('avgRating') },
+            { value: '97%', label: ts('positive') },
+            { value: '+35%', label: ts('moreGuests') },
           ].map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="text-center p-6 rounded-2xl border border-white/5 bg-white/[0.02]"
-            >
-              <div className="text-3xl md:text-5xl font-bold text-accent mb-2">
-                {stat.value}<span className="text-2xl md:text-3xl">{stat.suffix}</span>
-              </div>
-              <div className="text-white/40 text-sm">{stat.label}</div>
-            </motion.div>
+            <div key={i} className="text-center">
+              <div className="text-3xl md:text-5xl font-bold text-gray-900 mb-1">{stat.value}</div>
+              <div className="text-sm text-gray-400">{stat.label}</div>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

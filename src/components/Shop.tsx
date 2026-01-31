@@ -13,63 +13,59 @@ export default function Shop() {
   const t = useTranslations('shop');
 
   return (
-    <section id="shop" className="py-24 bg-black">
+    <section id="shop" className="py-28 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-white text-center mb-4"
+          className="text-center mb-16"
         >
-          {t('title')}
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-white/60 text-center mb-16 max-w-2xl mx-auto"
-        >
-          {t('description')}
-        </motion.p>
+          <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-4">{t('label')}</p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">{t('title')}</h2>
+          <p className="text-gray-500 text-lg max-w-xl mx-auto">{t('description')}</p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {tiers.map((tier, i) => (
             <motion.div
               key={tier.key}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className={
-                'relative rounded-2xl p-8 backdrop-blur-sm ' +
+                'relative rounded-3xl p-8 ' +
                 (tier.popular
-                  ? 'border-2 border-emerald-500 bg-emerald-500/5'
-                  : 'border border-white/10 bg-white/5')
+                  ? 'bg-gray-900 text-white shadow-2xl scale-105'
+                  : 'bg-gray-50 border border-gray-200')
               }
             >
               {tier.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-500 text-black text-xs font-semibold px-3 py-1 rounded-full">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-semibold px-3 py-1 rounded-full">
                   {t('popular')}
                 </span>
               )}
-              <h3 className="text-xl font-semibold text-white mb-2">
+              <h3 className={'text-xl font-semibold mb-2 ' + (tier.popular ? 'text-white' : 'text-gray-900')}>
                 {t(tier.key)}
               </h3>
               <div className="flex items-baseline gap-1 mb-4">
-                <span className="text-4xl font-bold text-white">€{tier.price}</span>
-                <span className="text-white/40 text-sm">{t('perMonth')}</span>
+                <span className={'text-4xl font-bold ' + (tier.popular ? 'text-white' : 'text-gray-900')}>
+                  {'€' + tier.price}
+                </span>
+                <span className={tier.popular ? 'text-gray-400 text-sm' : 'text-gray-400 text-sm'}>
+                  {t('perMonth')}
+                </span>
               </div>
-              <p className="text-white/60 mb-8 leading-relaxed">
+              <p className={'mb-8 leading-relaxed ' + (tier.popular ? 'text-gray-300' : 'text-gray-500')}>
                 {t(tier.key + 'Desc')}
               </p>
               <button
                 className={
-                  'w-full py-3 rounded-xl font-medium transition-colors duration-300 ' +
+                  'w-full py-3 rounded-full font-medium transition-colors ' +
                   (tier.popular
-                    ? 'bg-emerald-500 text-black hover:bg-emerald-400'
-                    : 'bg-white/10 text-white hover:bg-white/20')
+                    ? 'bg-white text-gray-900 hover:bg-gray-100'
+                    : 'bg-gray-900 text-white hover:bg-gray-800')
                 }
               >
                 {t('buyNow')}

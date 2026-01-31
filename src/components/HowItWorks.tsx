@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { QrCode, Filter, Star } from 'lucide-react';
+import Image from 'next/image';
 
 const steps = [
   { key: 'step1', icon: QrCode },
@@ -14,44 +15,79 @@ export default function HowItWorks() {
   const t = useTranslations('howItWorks');
 
   return (
-    <section id="how-it-works" className="relative py-32 bg-black overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
-        >
-          <span className="inline-block px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm font-medium mb-6">
-            {t('label')}
-          </span>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">{t('title')}</h2>
-          <p className="text-white/50 text-lg max-w-xl mx-auto">{t('description')}</p>
-        </motion.div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {steps.map((step, i) => {
-            const Icon = step.icon;
-            return (
-              <motion.div
-                key={step.key}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
-                className="relative group"
-              >
-                <div className="p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
-                  <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                    <Icon className="w-7 h-7 text-accent" />
-                  </div>
-                  <div className="text-xs text-accent font-bold mb-2">0{i + 1}</div>
-                  <h3 className="text-xl font-semibold mb-3">{t(`${step.key}Title`)}</h3>
-                  <p className="text-white/50 leading-relaxed">{t(`${step.key}Desc`)}</p>
-                </div>
-              </motion.div>
-            );
-          })}
+    <section id="how-it-works" className="py-28 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="rounded-3xl overflow-hidden">
+              <Image
+                src="/hero-customers.png"
+                alt="Happy customers scanning QR code"
+                width={896}
+                height={512}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </motion.div>
+
+          <div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-accent font-semibold text-sm uppercase tracking-wider mb-4"
+            >
+              {t('label')}
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6"
+            >
+              {t('title')}
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-gray-500 text-lg mb-10 leading-relaxed"
+            >
+              {t('description')}
+            </motion.p>
+
+            <div className="space-y-6">
+              {steps.map((step, i) => {
+                const Icon = step.icon;
+                return (
+                  <motion.div
+                    key={step.key}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+                    className="flex items-start gap-4"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-gray-900 flex items-center justify-center shrink-0">
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">{t(step.key + 'Title')}</h3>
+                      <p className="text-gray-500 leading-relaxed">{t(step.key + 'Desc')}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

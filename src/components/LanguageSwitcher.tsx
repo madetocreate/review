@@ -20,11 +20,12 @@ export default function LanguageSwitcher() {
         <button
           key={l.code}
           onClick={() => router.replace(pathname, { locale: l.code })}
-          className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
-            locale === l.code
-              ? 'bg-accent text-black'
-              : 'text-white/60 hover:text-white'
-          }`}
+          className={
+            'px-2 py-1 text-xs font-medium rounded transition-colors ' +
+            (locale === l.code
+              ? 'bg-gray-900 text-white'
+              : 'text-gray-400 hover:text-gray-900')
+          }
         >
           {l.label}
         </button>
