@@ -51,7 +51,7 @@ export default function Contact() {
           />
           <button
             type="submit"
-            className="w-full bg-gray-900 text-white font-semibold py-3.5 rounded-full hover:bg-gray-800 transition-colors"
+            className="w-full bg-accent text-white font-semibold py-3.5 rounded-full hover:bg-accent/90 transition-colors"
           >
             {t('send')}
           </button>

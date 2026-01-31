@@ -4,9 +4,9 @@ import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/routing';
 
 const locales = [
-  { code: 'de' as const, label: 'DE' },
-  { code: 'en' as const, label: 'EN' },
-  { code: 'es' as const, label: 'ES' },
+  { code: 'de' as const, flag: '🇩🇪' },
+  { code: 'en' as const, flag: '🇬🇧' },
+  { code: 'es' as const, flag: '🇪🇸' },
 ];
 
 export default function LanguageSwitcher() {
@@ -21,13 +21,12 @@ export default function LanguageSwitcher() {
           key={l.code}
           onClick={() => router.replace(pathname, { locale: l.code })}
           className={
-            'px-2 py-1 text-xs font-medium rounded transition-colors ' +
-            (locale === l.code
-              ? 'bg-gray-900 text-white'
-              : 'text-gray-400 hover:text-gray-900')
+            'text-lg leading-none px-1 py-0.5 rounded transition-opacity ' +
+            (locale === l.code ? 'opacity-100' : 'opacity-40 hover:opacity-80')
           }
+          aria-label={l.code}
         >
-          {l.label}
+          {l.flag}
         </button>
       ))}
     </div>

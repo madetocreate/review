@@ -32,7 +32,7 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="inline-block bg-gray-900 text-white font-semibold px-10 py-4 rounded-full hover:bg-gray-800 transition-colors text-lg"
+          className="inline-block bg-accent text-white font-semibold px-10 py-4 rounded-full hover:bg-accent/90 transition-colors text-lg"
         >
           {t('button')}
         </motion.a>

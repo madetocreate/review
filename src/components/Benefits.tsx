@@ -12,7 +12,6 @@ const benefits = [
 
 export default function Benefits() {
   const t = useTranslations('benefits');
-  const ts = useTranslations('stats');
 
   return (
     <section id="benefits" className="py-28 bg-white">
@@ -28,7 +27,7 @@ export default function Benefits() {
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">{t('title')}</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-3 gap-8">
           {benefits.map((b, i) => {
             const Icon = b.icon;
             return (
@@ -40,7 +39,7 @@ export default function Benefits() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="w-14 h-14 rounded-2xl bg-gray-900 flex items-center justify-center mx-auto mb-5">
+                <div className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center mx-auto mb-5">
                   <Icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{t(b.key + 'Title')}</h3>
@@ -50,24 +49,6 @@ export default function Benefits() {
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="grid grid-cols-3 gap-8 py-12 border-t border-b border-gray-100"
-        >
-          {[
-            { value: '850+', label: ts('displays') },
-            { value: '4×', label: ts('moreReviews') },
-            { value: '30 Sek.', label: ts('setupTime') },
-          ].map((stat, i) => (
-            <div key={i} className="text-center">
-              <div className="text-3xl md:text-5xl font-bold text-gray-900 mb-1">{stat.value}</div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

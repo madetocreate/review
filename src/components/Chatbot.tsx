@@ -66,7 +66,7 @@ export default function Chatbot() {
             className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-2rem)] bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden flex flex-col"
             style={{ height: 480 }}
           >
-            <div className="bg-gray-900 text-white px-6 py-4 flex items-center justify-between shrink-0">
+            <div className="bg-accent text-white px-6 py-4 flex items-center justify-between shrink-0">
               <div>
                 <div className="font-semibold text-sm">{t('title')}</div>
                 <div className="text-xs text-gray-400">{t('subtitle')}</div>
@@ -83,7 +83,7 @@ export default function Chatbot() {
                     className={
                       'max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ' +
                       (msg.role === 'user'
-                        ? 'bg-gray-900 text-white rounded-br-sm'
+                        ? 'bg-accent text-white rounded-br-sm'
                         : 'bg-gray-100 text-gray-700 rounded-bl-sm')
                     }
                   >
@@ -118,7 +118,7 @@ export default function Chatbot() {
                 />
                 <button
                   onClick={() => handleSend()}
-                  className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-gray-800 transition-colors shrink-0"
+                  className="w-10 h-10 rounded-full bg-accent flex items-center justify-center hover:bg-accent/90 transition-colors shrink-0"
                 >
                   <Send className="w-4 h-4 text-white" />
                 </button>
@@ -133,9 +133,9 @@ export default function Chatbot() {
         animate={{ scale: 1 }}
         transition={{ delay: 1, type: 'spring' }}
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-accent text-white flex items-center justify-center shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 transition-shadow"
+        className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 transition-shadow animate-pulse"
       >
-        {open ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
+        {open ? <X className="w-4 h-4" /> : <MessageCircle className="w-4 h-4" />}
       </motion.button>
     </>
   );

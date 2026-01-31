@@ -34,26 +34,29 @@ export default function Navbar() {
         (scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : '')
       }
     >
-      <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 py-5 flex items-center">
         <a href={'/' + locale} className="text-xl font-bold tracking-tight text-gray-900">
           review<span className="text-accent">filter</span>
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
           {navItems.map((item) => (
             <a
               key={item.key}
               href={'/' + locale + item.href}
-              className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+              className="text-sm text-gray-500 hover:text-accent transition-colors"
             >
               {t(item.key)}
             </a>
           ))}
+        </div>
+
+        <div className="hidden md:block">
           <LanguageSwitcher />
         </div>
 
         <button
-          className="md:hidden flex flex-col gap-1.5"
+          className="md:hidden flex flex-col gap-1.5 ml-auto"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menu"
         >
@@ -70,7 +73,7 @@ export default function Navbar() {
           className="md:hidden bg-white border-t border-gray-100 px-6 py-8 flex flex-col gap-6"
         >
           {navItems.map((item) => (
-            <a key={item.key} href={'/' + locale + item.href} onClick={() => setMobileOpen(false)} className="text-lg text-gray-700 hover:text-gray-900">
+            <a key={item.key} href={'/' + locale + item.href} onClick={() => setMobileOpen(false)} className="text-lg text-gray-700 hover:text-accent">
               {t(item.key)}
             </a>
           ))}

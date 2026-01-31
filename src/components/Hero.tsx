@@ -6,7 +6,6 @@ import Image from 'next/image';
 
 export default function Hero() {
   const t = useTranslations('hero');
-  const ts = useTranslations('stats');
 
   return (
     <section className="relative bg-white pt-24 pb-0">
@@ -46,7 +45,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.45 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <a href="#how-it-works" className="px-10 py-4 bg-gray-900 text-white font-semibold rounded-full hover:bg-gray-800 transition-colors text-center text-lg">
+              <a href="#how-it-works" className="px-10 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent/90 transition-colors text-center text-lg">
                 {t('cta')}
               </a>
               <a href="#how-it-works" className="px-10 py-4 border border-gray-200 text-gray-700 font-semibold rounded-full hover:bg-gray-50 transition-colors text-center text-lg">
@@ -54,25 +53,6 @@ export default function Hero() {
               </a>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
-              className="flex gap-10 mt-14 pt-8 border-t border-gray-100"
-            >
-              <div>
-                <div className="text-3xl font-bold text-gray-900">4.8★</div>
-                <div className="text-sm text-gray-400 mt-1">{ts('avgRating')}</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-gray-900">97%</div>
-                <div className="text-sm text-gray-400 mt-1">{ts('positive')}</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-gray-900">+35%</div>
-                <div className="text-sm text-gray-400 mt-1">{ts('moreGuests')}</div>
-              </div>
-            </motion.div>
           </div>
 
           <motion.div
