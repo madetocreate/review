@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "title": "Review Filter | El Filtro de Reseñas Inteligente",
+    "description": "Más estrellas, más reseñas positivas, más clientes. El único filtro de reseñas inteligente del mundo – Made in Germany."
+  },
+  "nav": {
+    "home": "Inicio",
+    "howItWorks": "Cómo Funciona",
+    "benefits": "Ventajas",
+    "products": "Productos",
+    "showcase": "Showcase",
+    "shop": "Tienda",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "badge": "Made in Germany",
+    "title": "Más Estrellas.\nMás Clientes.",
+    "subtitle": "El único filtro de reseñas inteligente del mundo para tu negocio.",
+    "cta": "Descúbrelo Ahora",
+    "ctaSecondary": "Cómo Funciona"
+  },
+  "howItWorks": {
+    "label": "Cómo Funciona",
+    "title": "Simple. Genial. Efectivo.",
+    "description": "El Review Filter actúa como un amortiguador digital que filtra estratégicamente las reseñas negativas.",
+    "step1Title": "Escanea o Toca",
+    "step1Desc": "Los clientes escanean el código QR o tocan el chip NFC de tu display.",
+    "step2Title": "Filtrado Inteligente",
+    "step2Desc": "Los clientes satisfechos van a Google. Los insatisfechos te envían feedback directamente.",
+    "step3Title": "Colecciona Estrellas",
+    "step3Desc": "Solo recibes reseñas positivas en Google — y feedback valioso para mejorar."
+  },
+  "benefits": {
+    "label": "Ventajas",
+    "title": "¿Por qué Review Filter?",
+    "benefit1Title": "Siempre 3–5 Estrellas",
+    "benefit1Desc": "Nuestro filtro asegura que solo las mejores reseñas aparezcan en Google — automática y confiablemente.",
+    "benefit2Title": "Facilísimo de Usar",
+    "benefit2Desc": "Escanea un QR o toca NFC. Sin app, sin login, sin barreras para tus clientes.",
+    "benefit3Title": "Máxima Visibilidad",
+    "benefit3Desc": "Mejores reseñas = más clics = más clientes. Más efectivo y económico que cualquier campaña SEO."
+  },
+  "stats": {
+    "avgRating": "Valoración Media",
+    "positive": "Positivo",
+    "moreGuests": "Más Clientes"
+  },
+  "showcase": {
+    "label": "Showcase",
+    "title": "El Filtro en Acción",
+    "description": "Experimenta el Review Filter paso a paso — del escaneo al resultado de 5 estrellas."
+  },
+  "products": {
+    "label": "Productos",
+    "title": "Artesanal. Inteligente. Efectivo.",
+    "description": "Nuestros displays cuentan con códigos QR y chips NFC para reseñas rápidas y sin complicaciones.",
+    "tableDisplay": "Display de Mesa",
+    "tableDisplayDesc": "Elegante soporte con código QR y chip NFC integrado. Perfecto para restaurantes, cafeterías y hoteles.",
+    "nfcCard": "Tarjeta NFC Review",
+    "nfcCardDesc": "Tarjeta compacta con tecnología NFC. Ideal para uso móvil y entrega personal.",
+    "wallDisplay": "Display de Pared",
+    "wallDisplayDesc": "Display profesional para montaje en pared. Óptimo para salas de espera y zonas de entrada."
+  },
+  "shop": {
+    "label": "Tienda",
+    "title": "Pedir Ahora",
+    "description": "Elige el paquete adecuado para tu negocio.",
+    "addToCart": "Añadir al Carrito",
+    "price": "Precio",
+    "includes": "Incluye",
+    "buyNow": "Comprar Ahora",
+    "starter": "Starter",
+    "starterDesc": "1× Display de Mesa con QR & NFC",
+    "professional": "Professional",
+    "professionalDesc": "2× Display de Mesa + 5× Tarjetas NFC",
+    "enterprise": "Enterprise",
+    "enterpriseDesc": "5× Display de Mesa + 10× Tarjetas NFC + Display de Pared",
+    "popular": "Popular",
+    "perMonth": "único pago"
+  },
+  "successStories": {
+    "label": "Historias de Éxito",
+    "title": "Lo que Dicen Nuestros Clientes",
+    "story1": "¡Subimos nuestras reseñas de Google de 4,3 a 4,8 en solo unas semanas!",
+    "story1Author": "Daniel, Leo's Grill Portals"
+  },
+  "industries": {
+    "title": "Para Todas las Industrias",
+    "gastro": "Gastronomía y Hotelería",
+    "retail": "Comercio Minorista",
+    "health": "Salud",
+    "beauty": "Bienestar y Belleza",
+    "auto": "Automoción",
+    "services": "Servicios Profesionales"
+  },
+  "contact": {
+    "label": "Contacto",
+    "title": "¿Preguntas?",
+    "description": "¡No dudes en escribirnos!",
+    "name": "Tu Nombre",
+    "email": "Correo Electrónico",
+    "subject": "Asunto",
+    "message": "Tu Mensaje",
+    "send": "Enviar Mensaje"
+  },
+  "footer": {
+    "imprint": "Aviso Legal",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos y Condiciones",
+    "revocation": "Derecho de Desistimiento",
+    "copyright": "© {year} ViBuCard Group. Todos los derechos reservados.",
+    "disclaimer": "Los productos aquí anunciados no están afiliados a Google LLC o Alphabet Inc. 'Google' es una marca registrada de Alphabet Inc."
+  },
+  "cta": {
+    "title": "¿Listo para Mejores Reseñas?",
+    "subtitle": "Empieza hoy y comprueba los resultados.",
+    "button": "Empezar Ahora"
+  }
+}

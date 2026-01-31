@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "title": "Review Filter | The Smart Review Filter",
+    "description": "More stars, more positive reviews, more customers. The world's only intelligent review filter – Made in Germany."
+  },
+  "nav": {
+    "home": "Home",
+    "howItWorks": "How It Works",
+    "benefits": "Benefits",
+    "products": "Products",
+    "showcase": "Showcase",
+    "shop": "Shop",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Made in Germany",
+    "title": "More Stars.\nMore Customers.",
+    "subtitle": "The world's only intelligent review filter for your business.",
+    "cta": "Discover Now",
+    "ctaSecondary": "How It Works"
+  },
+  "howItWorks": {
+    "label": "How It Works",
+    "title": "Simple. Brilliant. Effective.",
+    "description": "The Review Filter acts as a digital buffer that strategically filters negative reviews.",
+    "step1Title": "Scan or Tap",
+    "step1Desc": "Customers scan the QR code or tap the NFC chip on your display.",
+    "step2Title": "Smart Filtering",
+    "step2Desc": "Happy customers are directed to Google. Unhappy ones send feedback directly to you.",
+    "step3Title": "Collect Stars",
+    "step3Desc": "You only receive positive reviews on Google — plus valuable feedback to improve."
+  },
+  "benefits": {
+    "label": "Benefits",
+    "title": "Why Review Filter?",
+    "benefit1Title": "Always 3–5 Stars",
+    "benefit1Desc": "Our filter ensures only the best reviews appear on Google — automatically and reliably.",
+    "benefit2Title": "Dead Simple",
+    "benefit2Desc": "Scan a QR or tap NFC. No app, no login, zero friction for your customers.",
+    "benefit3Title": "Maximum Visibility",
+    "benefit3Desc": "Better reviews = more clicks = more customers. More effective and cheaper than any SEO campaign."
+  },
+  "stats": {
+    "avgRating": "Avg. Rating",
+    "positive": "Positive",
+    "moreGuests": "More Customers"
+  },
+  "showcase": {
+    "label": "Showcase",
+    "title": "See the Filter in Action",
+    "description": "Experience the Review Filter step by step — from scan to 5-star result."
+  },
+  "products": {
+    "label": "Products",
+    "title": "Handcrafted. Smart. Effective.",
+    "description": "Our displays feature QR codes and NFC chips for quick, frictionless reviews.",
+    "tableDisplay": "Table Display",
+    "tableDisplayDesc": "Elegant stand with QR code and integrated NFC chip. Perfect for restaurants, cafés and hotels.",
+    "nfcCard": "NFC Review Card",
+    "nfcCardDesc": "Compact card with NFC technology. Ideal for mobile use and personal handover.",
+    "wallDisplay": "Wall Display",
+    "wallDisplayDesc": "Professional wall-mounted display. Optimal for waiting areas and entrance zones."
+  },
+  "shop": {
+    "label": "Shop",
+    "title": "Order Now",
+    "description": "Choose the right package for your business.",
+    "addToCart": "Add to Cart",
+    "price": "Price",
+    "includes": "Includes",
+    "buyNow": "Buy Now",
+    "starter": "Starter",
+    "starterDesc": "1× Table Display with QR & NFC",
+    "professional": "Professional",
+    "professionalDesc": "2× Table Display + 5× NFC Cards",
+    "enterprise": "Enterprise",
+    "enterpriseDesc": "5× Table Display + 10× NFC Cards + Wall Display",
+    "popular": "Popular",
+    "perMonth": "one-time"
+  },
+  "successStories": {
+    "label": "Success Stories",
+    "title": "What Our Customers Say",
+    "story1": "We raised our Google reviews from 4.3 to 4.8 in just a few weeks!",
+    "story1Author": "Daniel, Leo's Grill Portals"
+  },
+  "industries": {
+    "title": "For Every Industry",
+    "gastro": "Gastronomy & Hospitality",
+    "retail": "Retail",
+    "health": "Healthcare",
+    "beauty": "Wellness & Beauty",
+    "auto": "Automotive",
+    "services": "Professional Services"
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Questions?",
+    "description": "Don't hesitate, write to us!",
+    "name": "Your Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Your Message",
+    "send": "Send Message"
+  },
+  "footer": {
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "revocation": "Right of Withdrawal",
+    "copyright": "© {year} ViBuCard Group. All rights reserved.",
+    "disclaimer": "Products advertised here are not affiliated with Google LLC or Alphabet Inc. 'Google' is a trademark of Alphabet Inc."
+  },
+  "cta": {
+    "title": "Ready for Better Reviews?",
+    "subtitle": "Start today and see the results for yourself.",
+    "button": "Get Started"
+  }
+}
