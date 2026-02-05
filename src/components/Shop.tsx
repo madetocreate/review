@@ -2,13 +2,19 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { Check, Shield, Truck, RotateCcw } from 'lucide-react';
 
 const tiers = [
-  { key: 'starter', price: '49', popular: false, features: ['feature1', 'feature2', 'feature3'] },
-  { key: 'professional', price: '99', popular: true, features: ['feature1', 'feature2', 'feature3', 'feature4', 'feature5'] },
-  { key: 'enterprise', price: '199', popular: false, features: ['feature1', 'feature2', 'feature3', 'feature4', 'feature5', 'feature6'] },
+  { key: 'starter', price: '49', popular: false, features: ['feature1', 'feature2', 'feature3', 'feature4'] },
+  { key: 'professional', price: '99', popular: true, features: ['feature1', 'feature2', 'feature3', 'feature4', 'feature5', 'feature6'] },
+  { key: 'enterprise', price: '199', popular: false, features: ['feature1', 'feature2', 'feature3', 'feature4', 'feature5', 'feature6', 'feature7'] },
 ] as const;
+
+const trustItems = [
+  { key: 'guarantee', icon: Shield },
+  { key: 'shipping', icon: Truck },
+  { key: 'returns', icon: RotateCcw },
+];
 
 export default function Shop() {
   const t = useTranslations('shop');
@@ -67,7 +73,7 @@ export default function Shop() {
                   {tier.features.map((f) => (
                     <div key={f} className="flex items-center gap-3">
                       <div className={'w-5 h-5 rounded-full flex items-center justify-center shrink-0 ' + (tier.popular ? 'bg-white' : 'bg-accent')}>
-                        <Check className="w-3 h-3 text-white" />
+                        <Check className={'w-3 h-3 ' + (tier.popular ? 'text-accent' : 'text-white')} />
                       </div>
                       <span className={'text-sm ' + (tier.popular ? 'text-gray-300' : 'text-gray-600')}>
                         {t(tier.key + '_' + f)}
@@ -90,6 +96,28 @@ export default function Shop() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-6 mt-16"
+        >
+          {trustItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.key} className="flex items-center gap-4 bg-white rounded-2xl p-5 border border-gray-100">
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                  <Icon className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">{t(item.key + 'Title')}</p>
+                  <p className="text-xs text-gray-500">{t(item.key + 'Desc')}</p>
+                </div>
+              </div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

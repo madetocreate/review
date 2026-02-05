@@ -166,7 +166,16 @@
     "enterprise_feature3": "1× Wall Display",
     "enterprise_feature4": "QR Code + NFC Chip",
     "enterprise_feature5": "Feedback Dashboard",
-    "enterprise_feature6": "Premium Support & Setup"
+    "enterprise_feature6": "Premium Support & Setup",
+    "enterprise_feature7": "Custom Logo & Branding",
+    "starter_feature4": "Free Shipping",
+    "professional_feature6": "Individual Setup",
+    "guaranteeTitle": "30-Day Money Back",
+    "guaranteeDesc": "Not satisfied? Full refund, no questions asked.",
+    "shippingTitle": "Free Shipping",
+    "shippingDesc": "Free delivery in 2–4 business days.",
+    "returnsTitle": "Easy Returns",
+    "returnsDesc": "Hassle-free and free returns."
   },
   "contact": {
     "label": "Contact",

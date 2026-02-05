@@ -166,7 +166,16 @@
     "enterprise_feature3": "1× Wand-Display",
     "enterprise_feature4": "QR-Code + NFC-Chip",
     "enterprise_feature5": "Feedback-Dashboard",
-    "enterprise_feature6": "Premium Support & Setup"
+    "enterprise_feature6": "Premium Support & Setup",
+    "enterprise_feature7": "Eigenes Logo & Branding",
+    "starter_feature4": "Kostenloser Versand",
+    "professional_feature6": "Individuelle Einrichtung",
+    "guaranteeTitle": "30 Tage Geld-zurück",
+    "guaranteeDesc": "Nicht zufrieden? Volle Erstattung, keine Fragen.",
+    "shippingTitle": "Kostenloser Versand",
+    "shippingDesc": "Gratis Lieferung in 2–4 Werktagen.",
+    "returnsTitle": "Einfache Rückgabe",
+    "returnsDesc": "Unkompliziert und kostenlos zurücksenden."
   },
   "contact": {
     "label": "Kontakt",

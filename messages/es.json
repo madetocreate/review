@@ -166,7 +166,16 @@
     "enterprise_feature3": "1× Display de Pared",
     "enterprise_feature4": "Código QR + Chip NFC",
     "enterprise_feature5": "Panel de Feedback",
-    "enterprise_feature6": "Soporte Premium & Setup"
+    "enterprise_feature6": "Soporte Premium & Setup",
+    "enterprise_feature7": "Logo & Branding Personalizado",
+    "starter_feature4": "Envío Gratuito",
+    "professional_feature6": "Configuración Individual",
+    "guaranteeTitle": "30 Días de Garantía",
+    "guaranteeDesc": "¿No satisfecho? Reembolso completo, sin preguntas.",
+    "shippingTitle": "Envío Gratuito",
+    "shippingDesc": "Entrega gratuita en 2–4 días hábiles.",
+    "returnsTitle": "Devoluciones Fáciles",
+    "returnsDesc": "Devolución sin complicaciones y gratuita."
   },
   "contact": {
     "label": "Contacto",
